@@ -8,7 +8,8 @@ import Button from "./styled/Button";
 import SearchBar from "./Header/SearchBar";
 import MobileSearchBar from "./Header/MobileSearchBar";
 
-
+import PlugConnect from '@psychedelic/plug-connect';
+import { useGlobalContext,useSetAgent } from "./Store";
 
 const HeaderEl = styled.article`
    color:${Colors.White};
@@ -104,18 +105,32 @@ export default function Header({ mobileMenu }) {
     const [SearchIsOpen, setSearchIsOpen] = useState(false);
     const { MobileMenuIsOpen, setMobileMenuIsOpen } = mobileMenu;
 
+    const whitelist = ['h7ecw-giaaa-aaaal-ab75a-cai'];
+
+    const setAgent = useSetAgent();
+
+    const { state : {
+        principal
+    }} = useGlobalContext();
+
     function toggleMenu() {
         setMobileMenuIsOpen(!MobileMenuIsOpen);
     }
-
+    const handlePlugLogin = async () => {
+        console.log("login with plug")
+        setAgent({
+            agent: await window?.ic?.plug?.agent,
+            isAuthed: true,
+        });
+    };
     return (
 
         <HeaderEl>
             <MenuIcon>
                 {MobileMenuIsOpen ? (
                     <IoClose
-                    style={{fontsize: "2.5rem"}}
-                    color={Colors.Primary}
+                        style={{ fontsize: "2.5rem" }}
+                        color={Colors.Primary}
                         onClick={() => {
                             toggleMenu();
                         }}
@@ -141,7 +156,15 @@ export default function Header({ mobileMenu }) {
                             <NavItem href="#"> Create</NavItem>
                         </li>
                         <li>
-                            <Button>Connect Wallet</Button>
+                            {/* <Button>Connect Wallet</Button> */}
+                            {!principal && <PlugConnect
+                                dark
+                                title="Connect Wallet"
+                                host="https://ic0.app"
+                                whitelist={whitelist}
+                                onConnectCallback={handlePlugLogin}
+                            />}
+                            {principal && <Button>{principal.toText().substring(1,7)+"..."}</Button>}
                         </li>
                     </ul>
                 </Nav>
