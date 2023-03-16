@@ -5,6 +5,7 @@ import { Colors } from "../src/components/Theme";
 import Button from "../src/components/styled/Button";
 import Page from "../src/components/styled/Page";
 
+import Store from "../src/components/Store";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -97,6 +98,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+      <Store>
       <Main>
         <Header mobileMenu={{ MobileMenuIsOpen, setMobileMenuIsOpen }} />
         <Page>
@@ -120,7 +122,7 @@ function MyApp({ Component, pageProps }) {
         </Page>
 
       </Main>
-
+      </Store>
           
       
       {/* footer */}
