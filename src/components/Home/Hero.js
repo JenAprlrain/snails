@@ -45,16 +45,24 @@ const Sub = styled.span`
 
 
 const Slider = styled.div`
+  
   position:relative;
   height: 35vh;
   min-height: 230px;
   padding: 2rem;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   overflow: hidden;
+  transition-property: transform,-webkit-transform;
+  transform: translateZ(0);
+  cursor: pointer;
+  box-sizing: border-box;
+  z-index:1;
+  
  
   border-radius: 20px;
  
@@ -74,55 +82,58 @@ const ImgContainer = styled.div`
 `;
 
 const ImgContainer1 = styled.div`
-   position: static;
-   filter: brightness(1);
-   display: block;
-   margin: 1rem;
-   cursor: pointer;
-   width: 100%;
-   height: 100%;
-   max-width: 500px;
+position: relative;
+display:block;
+left:0;
+top:0;
+
 `;
 
 const InfoContainer = styled.div`
-   background-color: ${Colors.Black};
-   width:100%;
-   position: relative;
+   background: rgba(22, 22, 27, 0.85);
+   width: 528px;
+   position: absolute;
    z-index: 3;
-   opacity: 80%;
-   display: flex;
-   flex: 1;
-   flex-direction: row;
+   backdrop-filter: blur(1rem);
+   display: grid;
+   grid-template-columns: 88px 1fr 56px;
+   gap: 3rem;
    align-items: center;
-   justify-content: center;
-   margin-bottom: 2rem;
-   margin-top: 22rem;
-   border-radius: 20px; 
+   -webkit-box-align: center;
+   bottom : 1rem;
+   PADDING: 1rem;
+   left: 50%;
+   transform: translateX(-50%);
+   border-radius: 1rem;
 `;
 
 
 const MiddleSection = styled.div`
    display: flex;
    flex-direction: column;
-   width: 50%;
-   gap: 1rem;
+   justify-content: center;
+   -webkit-box-pack: center;
+   box-sizing: border-box;
+   cursor: pointer;
 
-& > svg{
-    font-size: 2.4rem;
-    cursor: pointer;
-    @media ${Devices.Tablet} {
-        font-size: 3.4rem;
-    }
-}
-
+  
 `;
 
 const STitle = styled.h2`
- font-size: 2rem;
+margin-top: 0px;
+margin-bottom: 0px;
+font-weight: 700;
+text-align: left;
+letter-spacing: 1px;
+font-size: 2rem;
 `;
 
 const Description = styled.h3`
- font-size: 1rem;
+margin-top: 0px;
+margin-bottom: 0px;
+font-weight: 400;
+font-size: 1rem;
+text-align: left;
 `;
 
 const Lines = styled.span`
@@ -142,9 +153,20 @@ const Line = styled.span`
 const Img = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+const Img2 = styled.div`
+  width: 66px;
+  height: 66px;
+  border-radius: 0.5rem;
+  box-sizing: border-box
+  overflow-clip-margin: content-box;
+  overflow: clip
+
   
 
 `;
+
 
 const Items = [
   {
@@ -166,27 +188,26 @@ export default function Hero() {
 
   return (
     <HeroEl>
-          <Title>
+        <Title>
         <Heading>Discover the new NFT marketplace on the Internet Computer</Heading>
         <Sub>Created by BonePunkzzDAO</Sub>
-      </Title>
+        </Title>
       <Slider>
+      <BsChevronLeft/>
         <InfoContainer>
-        <div>
           <ImgContainer1>
-            <Image
+          <Img2>
+            <Image alt="BonePunkzz"
               width={100}
               height={100}
               src={CurSlide.ImageSrc1}
             />
+            </Img2>
           </ImgContainer1>
-          </div>
           <MiddleSection>
               <STitle>{CurSlide.Title}</STitle>
               <Description>{CurSlide.Description}</Description>
-
-          </MiddleSection>
-          
+          </MiddleSection>          
         </InfoContainer>
         <ImgContainer>
           <Img>
@@ -196,6 +217,7 @@ export default function Hero() {
             />
           </Img>
         </ImgContainer>
+        <BsChevronRight/>
       </Slider>
       <Lines>
           {Slides.map((s) => {
