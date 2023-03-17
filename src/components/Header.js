@@ -7,9 +7,14 @@ import { useState } from "react";
 import Button from "./styled/Button";
 import SearchBar from "./Header/SearchBar";
 import MobileSearchBar from "./Header/MobileSearchBar";
+import Logo from '../../public/images/hyprspce.svg?url';
+import Image from "next/image";
 
 import PlugConnect from '@psychedelic/plug-connect';
 import { useGlobalContext,useSetAgent } from "./Store";
+
+
+
 
 const HeaderEl = styled.article`
    color:${Colors.White};
@@ -32,6 +37,11 @@ const HeaderEl = styled.article`
    
 `;
 
+const ImgContainer = styled.div`
+   position: relative;
+   filter: brightness(1);
+`;
+
 const Center = styled.div`
 flex:1;
 display:flex;
@@ -39,9 +49,7 @@ align-items: center;
 gap: 0.5 rem;
 `;
 
-const Logo = styled.img`
-  width: 200px;
-`;
+
 const Nav = styled.nav`
    margin-left:auto;
    padding-right: 2rem;
@@ -142,7 +150,12 @@ export default function Header({ mobileMenu }) {
                 )}
             </MenuIcon>
             <Center>
-                <Logo src="/images/hyprspceLogo4.png" />
+                <ImgContainer>
+                <Image
+                width={200}
+                height={28} src={Logo} />
+                </ImgContainer>
+
                 <SearchBar />
                 <Nav>
                     <ul>
@@ -153,7 +166,7 @@ export default function Header({ mobileMenu }) {
                             <NavItem href="#"> Launchpad</NavItem>
                         </li>
                         <li>
-                            <NavItem href="#"> Create</NavItem>
+                            <NavItem href="#">Create</NavItem>
                         </li>
                         <li>
                             {/* <Button>Connect Wallet</Button> */}
