@@ -190,7 +190,7 @@ export default function Hero() {
     <HeroEl>
         <Title>
         <Heading>DISCOVER THE SLOWEST CREATURES ON THE FASTEST BLOCKCHAIN</Heading>
-        <Sub>Created by DARKSIDE DAO</Sub>
+        <Sub>Created by Shells Squad</Sub>
         </Title>
       <Slider>
       <BsChevronLeft/>
