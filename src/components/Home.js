@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <HomeEl>
       <Head>
-        <title>hyprspce.art</title>
+        <title>racing-snails.vercel.app</title>
         <meta
           name="description"
           content="Cleaned create-next-app including styled-components and configured theme"

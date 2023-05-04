@@ -107,13 +107,13 @@ function MyApp({ Component, pageProps }) {
         <MobileMenu open={MobileMenuIsOpen}>
           <ul>
             <li>
-              <NavItem href="#">Marketplace</NavItem>
+              <NavItem href="#">Play Now</NavItem>
             </li>
             <li>
-              <NavItem href="#">Launchpad</NavItem>
+              <NavItem href="#">My Snails</NavItem>
             </li>
             <li>
-              <NavItem href="#"> Create</NavItem>
+              <NavItem href="#">Bridge</NavItem>
             </li>
             <li>
               <Button>Connect Wallet</Button>

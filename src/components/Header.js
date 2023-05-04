@@ -5,12 +5,9 @@ import { IoClose } from 'react-icons/io5';
 import { Colors, Devices } from "./Theme";
 import { useState } from "react";
 import Button from "./styled/Button";
-import SearchBar from "./Header/SearchBar";
 import MobileSearchBar from "./Header/MobileSearchBar";
-import Logo from '../../public/images/hyprspce.svg?url';
+import Logo from '../../public/images/Snails.png';
 import Image from "next/image";
-
-import PlugConnect from '@psychedelic/plug-connect';
 import { useGlobalContext,useSetAgent } from "./Store";
 
 
@@ -113,8 +110,6 @@ export default function Header({ mobileMenu }) {
     const [SearchIsOpen, setSearchIsOpen] = useState(false);
     const { MobileMenuIsOpen, setMobileMenuIsOpen } = mobileMenu;
 
-    const whitelist = ['h7ecw-giaaa-aaaal-ab75a-cai'];
-
     const setAgent = useSetAgent();
 
     const { state : {
@@ -152,31 +147,25 @@ export default function Header({ mobileMenu }) {
             <Center>
                 <ImgContainer>
                 <Image
-                width={200}
-                height={28} src={Logo} />
+                width={100}
+                height={100} src={Logo} />
                 </ImgContainer>
-
-                <SearchBar />
                 <Nav>
                     <ul>
                         <li>
-                            <NavItem href="#">Marketplace</NavItem>
+                            <NavItem href="/marketplace">My Snails</NavItem>
                         </li>
                         <li>
-                            <NavItem href="#"> Launchpad</NavItem>
+                            <NavItem href="#"> Play Now</NavItem>
                         </li>
                         <li>
-                            <NavItem href="#">Create</NavItem>
+                            <NavItem href="#">Lore</NavItem>
                         </li>
                         <li>
-                            {/* <Button>Connect Wallet</Button> */}
-                            {!principal && <PlugConnect
-                                dark
-                                title="Connect Wallet"
-                                host="https://ic0.app"
-                                whitelist={whitelist}
-                                onConnectCallback={handlePlugLogin}
-                            />}
+                            <NavItem href="#">Bridge</NavItem>
+                        </li>
+                        <li>
+                            <Button>Connect Wallet</Button>
                             {principal && <Button>{principal.toText().substring(1,7)+"..."}</Button>}
                         </li>
                     </ul>

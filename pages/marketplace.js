@@ -62,8 +62,6 @@ export default function marketplace() {
   return <MarketplaceEl>
      <Title> Marketplace</Title>
      <TopSection>
-        <Sort>Sales Volume</Sort>
-        <Date>Today</Date>
      </TopSection>
      <Grid>
         {NFTs.map((nft) => {

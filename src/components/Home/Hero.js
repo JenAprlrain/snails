@@ -156,8 +156,8 @@ const Img = styled.div`
 `;
 
 const Img2 = styled.div`
-  width: 66px;
-  height: 66px;
+  width: 100px;
+  height: 100px;
   border-radius: 0.5rem;
   box-sizing: border-box
   overflow-clip-margin: content-box;
@@ -171,10 +171,10 @@ const Img2 = styled.div`
 const Items = [
   {
     Id: 1,
-    Title: "Bone Punkzz",
-    Description: "BonePunkzz is a collection of 100 3D bones on the Internet Computer",
+    Title: "Racing Snails",
+    Description: "Racing Snails are 1690 Pixel Snails racing on the Fantom Blockchain",
     ImageSrc: "/images/Banner.png",
-    ImageSrc1: "/images/Bone Punkzz.jpg",
+    ImageSrc1: "/images/Snails.png",
   },
 ];
 
@@ -189,15 +189,15 @@ export default function Hero() {
   return (
     <HeroEl>
         <Title>
-        <Heading>Discover the new NFT marketplace on the Internet Computer</Heading>
-        <Sub>Created by BonePunkzzDAO</Sub>
+        <Heading>DISCOVER THE SLOWEST CREATURES ON THE FASTEST BLOCKCHAIN</Heading>
+        <Sub>Created by DARKSIDE DAO</Sub>
         </Title>
       <Slider>
       <BsChevronLeft/>
         <InfoContainer>
           <ImgContainer1>
           <Img2>
-            <Image alt="BonePunkzz"
+            <Image alt="Racing Snails"
               width={100}
               height={100}
               src={CurSlide.ImageSrc1}
