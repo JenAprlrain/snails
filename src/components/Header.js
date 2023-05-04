@@ -146,9 +146,7 @@ export default function Header({ mobileMenu }) {
             </MenuIcon>
             <Center>
                 <ImgContainer>
-                <Image
-                width={100}
-                height={100} src={Logo} />
+                
                 </ImgContainer>
                 <Nav>
                     <ul>
