@@ -5,7 +5,6 @@ import { IoClose } from 'react-icons/io5';
 import { Colors, Devices } from "./Theme";
 import { useState } from "react";
 import Button from "./styled/Button";
-import MobileSearchBar from "./Header/MobileSearchBar";
 import Logo from '../../public/images/Snails.png';
 import Image from "next/image";
 import { useGlobalContext,useSetAgent } from "./Store";

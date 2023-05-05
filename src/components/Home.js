@@ -4,8 +4,11 @@ import { Colors, Devices } from "./Theme";
 import { BsGithub, BsGlobe } from "react-icons/bs";
 import Link from "next/link";
 import Button from "./styled/Button";
-import SearchBar from "./Header/SearchBar";
 import Hero from "./Home/Hero";
+import Mint from "./Home/Mint";
+import About from "./Home/About";
+import Team from "./Home/Team";
+import Roadmap from "./Home/Roadmap";
 
 const HomeEl = styled.article`
 
@@ -25,6 +28,10 @@ export default function Home() {
         <link rel="icon" href="/replace.png" />
       </Head>
       <Hero />
+      <Mint></Mint>
+      <About></About>
+      <Team></Team>
+      <Roadmap></Roadmap>
     </HomeEl>
 
   );
